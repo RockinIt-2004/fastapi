@@ -2,13 +2,13 @@ from fastapi import FastAPI, Depends, HTTPException
 import requests
 from fastapi.security import OAuth2PasswordBearer
 import os
-
+from dotenv import load_dotenv
 app = FastAPI()
-
+load_dotenv()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
-CLIENT_ID = "9fb3a6ccb0c840f1ab7fbf2260e9666d"
-CLIENT_SECRET = "d8552489b64b4358a9f45dad0540c637"
+CLIENT_ID = os.getenv("CLIENT_ID")
+CLIENT_SECRET = os.getenv("CLIENT_SECRET")
 TOKEN_URL = "https://oauth.fatsecret.com/connect/token"
 
 def get_access_token():
