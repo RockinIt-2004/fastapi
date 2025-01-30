@@ -6,9 +6,9 @@ from dotenv import load_dotenv
 app = FastAPI()
 load_dotenv()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
-
 CLIENT_ID = os.getenv("CLIENT_ID")
 CLIENT_SECRET = os.getenv("CLIENT_SECRET")
+
 TOKEN_URL = "https://oauth.fatsecret.com/connect/token"
 
 def get_access_token():
